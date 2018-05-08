@@ -1,15 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<agm-map [latitude]="lat" [longitude]="lng" [minZoom]="14">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
 
-  <h2> {{a*a + b*b}} </h2>
+<ul>
+  <ng-container *ngFor="let place of places">
+    <li *ngIf="place.active">{{place.name}}</li>
+  </ng-container>
+</ul>
 
-  <hr>
-
-  <button [disabled]="!ready">Click</button>
-</div>
-
+<ul>
+  <ng-container *ngFor="let place of places; let i = index">
+    <li [ngStyle]="{color: (place.active ? 'black' : 'gray')}"
+        [ngClass]="{odd: (i+1) % 2 != 0}">{{place.name}}
+    </li>
+  </ng-container>
+</ul>
 
 

@@ -6,17 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'NineSquare';
+  places: any = [
+    {active: true, name: 'Flowers House'},
+    {active: true, name: 'Kryspy Kreme'},
+    {active: true, name: 'Swagger Petstore'},
+    {active: false, name: 'Little Caesars'},
+    {active: false, name: 'Sams'},
+    {active: true, name: 'Best Buy'}
+  ];
 
-  a = 2;
-  b = 3;
-
-  ready = false;
-
-  constructor() {
-    setTimeout(() => {
-      this.ready = true;
-    }, 3000);
-  }
+  lat = 20.6118227;
+  lng = -103.4108922;
 
 }
