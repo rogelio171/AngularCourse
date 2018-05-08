@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'NineSquare';
+
+  a = 2;
+  b = 3;
+
+  ready = false;
+
+  constructor() {
+    setTimeout(() => {
+      this.ready = true;
+    }, 3000);
+  }
+
 }
