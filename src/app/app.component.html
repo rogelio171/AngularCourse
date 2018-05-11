@@ -10,9 +10,14 @@
 </ul>
 
 <ul>
-  <ng-container *ngFor="let place of places; let i = index">
-    <li [ngStyle]="{color: (place.active ? 'black' : 'gray')}"
-        [ngClass]="{odd: (i+1) % 2 != 0}">{{place.name}}
+  <ng-container *ngFor="let place of places; let i = index" [ngSwitch]="place.nearness">
+    <li appCountclicks [ngStyle]="{color: (place.active ? 'black' : 'gray')}"
+        [ngClass]="{odd: (i+1) % 2 != 0}"
+        [appHighlight]="place.plan">
+      {{place.name}} -
+      <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Very close</span>
+      <span *ngSwitchCase="2" [ngStyle]="{color: 'black'}">Near</span>
+      <span *ngSwitchCase="3" [ngStyle]="{color: 'red'}">Far away</span>
     </li>
   </ng-container>
 </ul>
