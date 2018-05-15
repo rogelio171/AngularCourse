@@ -10,12 +10,23 @@ import {CountclicksDirective} from './directives/countclicks.directive';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material/material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {RouterModule, Routes} from '@angular/router';
+import { DetailComponent } from './detail/detail.component';
+import { PlacesComponent } from './places/places.component';
+
+const appRoutes: Routes = [
+  {path: '', component: PlacesComponent},
+  {path: 'places', component: PlacesComponent},
+  {path: 'details/:id', component: DetailComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     HighlightDirective,
-    CountclicksDirective
+    CountclicksDirective,
+    DetailComponent,
+    PlacesComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -25,7 +36,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     BrowserModule,
     FormsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+<agm-map [latitude]="lat" [longitude]="lng" [minZoom]="14">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<div fxLayout="row">
+  <div fxFlex="60" fxFlexOffset="5">
+    <mat-list role="list">
+      <h2>Near Places</h2>
+      <ng-container *ngFor="let place of places">
+        <a class="anchor" routerLink="/details/{{place.id}}">
+        <mat-list-item role="listitem" *ngIf="place.active">
+          {{place.name}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+        </a>
+      </ng-container>
+    </mat-list>
+  </div>
+  <div fxFlexOffset="5">
+    <h2>Highlights</h2>
+  </div>
+</div>

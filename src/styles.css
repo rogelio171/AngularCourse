@@ -3,6 +3,11 @@ agm-map {
   height: 300px;
 }
 
+.anchor {
+  color: inherit;
+  text-decoration: none;
+}
+
 .odd {
   background-color: aliceblue;
 }
