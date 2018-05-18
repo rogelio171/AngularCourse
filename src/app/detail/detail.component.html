@@ -1,3 +1,21 @@
-<p>
-  detail works!
-</p>
+<div>
+  <mat-card [style.background]="'#e8eaf6'">
+    <a mat-raised-button color="primary" routerLink="/places">
+      Places
+    </a> / {{place.name}}
+  </mat-card>
+</div>
+
+<div fxLayout="row">
+  <div fxFlex="80" fxFlexOffset="10">
+    <h1>{{place.name}}</h1>
+    <hr>
+    <small> {{place.distance}} kms.</small>
+    <mat-card [style.background]="'#e8eaf6'">
+      <p>
+        {{place.description}}
+      </p>
+      Subscription: <b>{{place.plan}}</b>
+    </mat-card>
+  </div>
+</div>

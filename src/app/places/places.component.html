@@ -7,7 +7,8 @@
     <mat-list role="list">
       <h2>Near Places</h2>
       <ng-container *ngFor="let place of places">
-        <a class="anchor" routerLink="/details/{{place.id}}">
+        <a class="anchor" routerLink="/details/{{place.id}}"
+        [queryParams]="{action:'edit', referer:'google'}">
         <mat-list-item role="listitem" *ngIf="place.active">
           {{place.name}}
           <mat-divider></mat-divider>

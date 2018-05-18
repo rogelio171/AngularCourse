@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import {
-  MatButtonModule,
+  MatButtonModule, MatCardModule,
   MatDividerModule,
   MatIconModule,
   MatListModule,
@@ -10,6 +10,7 @@ import {
 
 const modules = [
   MatButtonModule,
+  MatCardModule,
   MatDividerModule,
   MatIconModule,
   MatListModule,
