@@ -18,7 +18,7 @@ export class DetailComponent implements OnInit {
   ];
 
   id = null;
-  place = {};
+  place: any = {};
 
   constructor(private route: ActivatedRoute) {
     console.log(this.route.snapshot.params['id']);

@@ -1,0 +1,30 @@
+<div>
+  <mat-card [style.background]="'#e8eaf6'">
+    <a mat-raised-button color="primary" routerLink="/places">
+      Places
+    </a> / Contact
+  </mat-card>
+</div>
+
+<div fxLayout="row">
+  <div fxFlex="80" fxFlexOffset="10">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Message"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div fxLayout="row">
+  <div fxFlex="40" fxFlexOffset="42">
+    <a mat-raised-button color="primary">Send</a>
+    <a mat-raised-button class="button-row">Cancel</a>
+  </div>
+</div>
