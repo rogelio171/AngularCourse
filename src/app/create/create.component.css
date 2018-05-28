@@ -1,0 +1,13 @@
+.example-container {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.button-row {
+  margin-left: 3em;
+}

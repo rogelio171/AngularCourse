@@ -6,6 +6,8 @@
   <div fxFlex="60" fxFlexOffset="5">
     <mat-list role="list">
       <h2>Near Places</h2>
+      <span class="spacer"></span>
+      <a mat-raised-button color="primary" routerLink="/create">Add Place</a>
       <ng-container *ngFor="let place of places">
         <a class="anchor" routerLink="/details/{{place.id}}"
         [queryParams]="{action:'edit', referer:'google'}">

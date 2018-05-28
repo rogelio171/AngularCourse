@@ -1,0 +1,35 @@
+<div>
+  <mat-card [style.background]="'#e8eaf6'">
+    <a mat-raised-button color="primary" routerLink="/places">
+      Places
+    </a> / Create
+  </mat-card>
+</div>
+
+<div fxLayout="row">
+  <div fxFlex="80" fxFlexOffset="10">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="place.name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Nearness" [(ngModel)]="place.nearness">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Distance" [(ngModel)]="place.distance">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" [(ngModel)]="place.description"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Plan" [(ngModel)]="place.plan">
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div fxLayout="row">
+  <div fxFlex="40" fxFlexOffset="42">
+    <a mat-raised-button color="primary" (click)="savePlace()">Send</a>
+    <a mat-raised-button class="button-row">Cancel</a>
+  </div>
+</div>
