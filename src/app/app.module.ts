@@ -19,6 +19,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireModule} from 'angularfire2';
 import { CreateComponent } from './create/create.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: '', component: PlacesComponent},
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     }),
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     FlexLayoutModule,
     MaterialModule,

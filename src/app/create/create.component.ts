@@ -15,7 +15,17 @@ export class CreateComponent implements OnInit {
   }
 
   savePlace() {
-    this.placesService.savePlace(this.place);
+    const address = this.place.address + ',' + this.place.city + ',' + this.place.country;
+
+    this.placesService.getGeoData(address)
+      .subscribe(result => {
+        this.place.lat = result['results'][0].geometry.location.lat;
+        this.place.lng = result['results'][0].geometry.location.lng;
+        this.place.id = Date.now();
+        this.placesService.savePlace(this.place);
+        alert('Saved Successfully');
+        this.place = {};
+      });
   }
 
 }

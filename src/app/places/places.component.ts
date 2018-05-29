@@ -14,7 +14,11 @@ export class PlacesComponent implements OnInit {
   lng = -103.4108922;
 
   constructor(private placesServices: PlacesService) {
-    this.places = placesServices.getPlaces();
+    this.placesServices.getPlaces()
+      .valueChanges()
+      .subscribe(places => {
+        this.places = places;
+      });
   }
 
   ngOnInit() {
