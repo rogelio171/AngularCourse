@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PlacesService} from '../services/places.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -8,8 +9,21 @@ import {PlacesService} from '../services/places.service';
 })
 export class CreateComponent implements OnInit {
   place: any = {};
-
-  constructor(private placesService: PlacesService) { }
+  id: any = null;
+  view: any = null;
+  constructor(private placesService: PlacesService, private route: ActivatedRoute, private router: Router) {
+    this.id = this.route.snapshot.params['id'];
+    if (this.id !== 'new') {
+      this.view = 'Edit'
+      this.placesService.findPlace(this.id)
+        .valueChanges()
+        .subscribe(place => {
+          this.place = place;
+        });
+    } else {
+      this.view = 'Create';
+    }
+  }
 
   ngOnInit() {
   }
@@ -21,10 +35,17 @@ export class CreateComponent implements OnInit {
       .subscribe(result => {
         this.place.lat = result['results'][0].geometry.location.lat;
         this.place.lng = result['results'][0].geometry.location.lng;
-        this.place.id = Date.now();
-        this.placesService.savePlace(this.place);
-        alert('Saved Successfully');
+
+        if (this.id !== 'new') {
+          this.placesService.editPlace(this.place);
+          alert('Edited Successfully');
+        } else {
+          this.place.id = Date.now();
+          this.placesService.savePlace(this.place);
+          alert('Saved Successfully');
+        }
         this.place = {};
+        this.router.navigate(['/places']);
       });
   }
 

@@ -1,5 +1,5 @@
-<agm-map [latitude]="lat" [longitude]="lng" [minZoom]="14">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [minZoom]="11">
+  <agm-marker *ngFor="let place of places" [latitude]="place.lat" [longitude]="place.lng"></agm-marker>
 </agm-map>
 
 <div fxLayout="row">
@@ -7,10 +7,9 @@
     <mat-list role="list">
       <h2>Near Places</h2>
       <span class="spacer"></span>
-      <a mat-raised-button color="primary" routerLink="/create">Add Place</a>
+      <a mat-raised-button color="primary" routerLink="/create/new">Add Place</a>
       <ng-container *ngFor="let place of places">
-        <a class="anchor" routerLink="/details/{{place.id}}"
-        [queryParams]="{action:'edit', referer:'google'}">
+        <a class="anchor" routerLink="/create/{{place.id}}">
         <mat-list-item role="listitem">
           {{place.name}}
           <mat-divider></mat-divider>

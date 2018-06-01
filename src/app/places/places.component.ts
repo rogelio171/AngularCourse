@@ -15,9 +15,9 @@ export class PlacesComponent implements OnInit {
 
   constructor(private placesServices: PlacesService) {
     this.placesServices.getPlaces()
-      .valueChanges()
       .subscribe(places => {
         this.places = places;
+        this.places = Object.keys(this.places).map(key => places[key]);
       });
   }
 
