@@ -1,0 +1,31 @@
+<div fxLayout="row">
+  <div fxFlex="40" fxFlexOffset="30">
+    <form class="example-form">
+      <mat-toolbar color="warn" class="example-full-width margin">
+        <h2><span>Login</span></h2>
+      </mat-toolbar>
+
+      <mat-form-field class="example-full-width margin">
+        <input matInput placeholder="Email" [formControl]="emailFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width margin">
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+               [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field>
+
+      <a mat-raised-button color="primary" class="example-full-width margin" (click)="login()">Login</a>
+      <a mat-raised-button class="example-full-width margin">Cancel</a>
+
+    </form>
+  </div>
+</div>

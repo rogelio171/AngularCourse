@@ -20,13 +20,18 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireModule} from 'angularfire2';
 import { CreateComponent } from './create/create.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import {AuthorizationService} from './services/authorization.service';
 
 const appRoutes: Routes = [
   {path: '', component: PlacesComponent},
   {path: 'places', component: PlacesComponent},
   {path: 'details/:id', component: DetailComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'create/:id', component: CreateComponent}
+  {path: 'create/:id', component: CreateComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({
@@ -37,7 +42,9 @@ const appRoutes: Routes = [
     DetailComponent,
     PlacesComponent,
     ContactComponent,
-    CreateComponent
+    CreateComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     AngularFireAuthModule,
@@ -55,7 +62,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [PlacesService],
+  providers: [PlacesService, AuthorizationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

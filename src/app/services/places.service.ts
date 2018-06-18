@@ -12,9 +12,9 @@ export class PlacesService {
 
   constructor(private angularFireDatabase: AngularFireDatabase, private http: HttpClient) { }
 
-  public getPlaces() {
+  public getPlaces(token) {
     // return this.angularFireDatabase.list('places');
-    return this.http.get(this.API_ENDPOINT + '/.json')
+    return this.http.get(`${this.API_ENDPOINT}/.json?auth=${token}`)
       .map( res => {
         const data = res['places'];
         return data;

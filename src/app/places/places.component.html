@@ -11,7 +11,8 @@
       <ng-container *ngFor="let place of places">
         <a class="anchor" routerLink="/create/{{place.id}}">
         <mat-list-item role="listitem">
-          {{place.name}}
+          <h3 mat-line>{{place.name}}</h3>
+          <p mat-line>Created: {{place.id | date: 'medium' | uppercase}}</p>
           <mat-divider></mat-divider>
         </mat-list-item>
         </a>
